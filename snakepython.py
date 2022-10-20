@@ -34,7 +34,7 @@ def scoreboard(msg, color):
 
 def message(msg,color):
     mesg = font_style.render(msg, True, color)
-    dis.blit(mesg, [dis_width/5, dis_height/2])
+    dis.blit(mesg, [dis_width/99, dis_height/2.1])
 
 def gameLoop():
     game_over = False
@@ -49,6 +49,7 @@ def gameLoop():
     snake_List = []
     Length_of_snake = 1
     score = 0
+    snake_speed = 15
  
     foodx = round(random.randrange(0, dis_width - snake_block) / 20.0) * 20.0
     foody = round(random.randrange(0, dis_height - snake_block) / 20.0) * 20.0
@@ -58,7 +59,8 @@ def gameLoop():
 
         while game_close == True:
             dis.fill(white)
-            message("You lost! Press Q-Quit or C-Play Again", red)
+            message("Boo, you stink! Press Q to Quit or C to Play Again", red)
+            scoreboard(scoremsg, black)
             pygame.display.update()
  
             for event in pygame.event.get():
@@ -112,6 +114,7 @@ def gameLoop():
 
         if x1 == foodx and y1 == foody:
             score += 1
+            snake_speed += 1
             foodx = round(random.randrange(0, dis_width - snake_block) / 20.0) * 20.0
             foody = round(random.randrange(0, dis_height - snake_block) / 20.0) * 20.0
             Length_of_snake += 1
