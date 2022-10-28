@@ -11,18 +11,18 @@ blue = (0, 0, 255)
 green = (0, 255, 0)
 yellow = (255, 255, 102)
 
-dis_width = 1600
-dis_height = 1200
+dis_width = 1800
+dis_height = 1000
 dis = pygame.display.set_mode((dis_width, dis_height))
 pygame.display.set_caption("Python snake game by Mike Wolski")
-
+so = (dis_width + dis_height)/50
 clock = pygame.time.Clock()
 
 snake_block = 20
 snake_speed = 15
 
-font_style = pygame.font.SysFont("bahnschrift", 80)
-score_font = pygame.font.SysFont("comicsansms", 40)
+font_style = pygame.font.SysFont("bahnschrift", int(so))
+score_font = pygame.font.SysFont("comicsansms", 20)
 
 def our_snake(snake_block, snake_list):
     for x in snake_list:
@@ -30,7 +30,7 @@ def our_snake(snake_block, snake_list):
 
 def scoreboard(msg, color):
     mesg = score_font.render(msg, True, color)
-    dis.blit(mesg, [dis_width*0.92, dis_height*0.97])
+    dis.blit(mesg, [0, 0])
 
 def message(msg,color):
     mesg = font_style.render(msg, True, color)
